@@ -1,0 +1,6 @@
+/* Junta todos los estilos propios. Se importa una sola vez en main.jsx */
+@import './variables.css';
+@import './base.css';
+@import './vidrio.css';
+@import './inicio.css';
+@import './paginas.css';

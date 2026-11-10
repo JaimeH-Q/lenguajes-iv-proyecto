@@ -1,0 +1,77 @@
+/* Efecto vidrio para todas las tarjetas (.vidrio y las .card de Bootstrap).
+   El destello sigue al mouse: las variables --mouseX y --mouseY
+   las actualiza utilidades/destelloVidrio.js */
+
+.vidrio,
+.card {
+  --bs-card-bg: var(--vidrio);
+  --bs-card-border-color: var(--borde);
+  --bs-card-border-radius: var(--radioGrande);
+  --bs-card-inner-border-radius: calc(var(--radioGrande) - 1px);
+  --bs-card-cap-bg: rgba(148, 170, 220, 0.04);
+  --bs-card-color: var(--texto);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--vidrio);
+  border: 1px solid var(--borde);
+  border-radius: var(--radioGrande);
+  backdrop-filter: var(--desenfoque);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 48px -24px rgba(0, 0, 0, 0.55);
+}
+
+/* Destello de luz detrás del contenido, donde está el mouse */
+.vidrio::before,
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    360px circle at var(--mouseX, 50%) var(--mouseY, 50%),
+    rgba(76, 141, 255, 0.26),
+    rgba(155, 123, 255, 0.1) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* El borde también se ilumina cerca del mouse */
+.vidrio::after,
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    240px circle at var(--mouseX, 50%) var(--mouseY, 50%),
+    rgba(155, 123, 255, 0.85),
+    rgba(76, 141, 255, 0.45) 40%,
+    transparent 70%
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.vidrio:hover::before,
+.vidrio:hover::after,
+.card:hover::before,
+.card:hover::after {
+  opacity: 1;
+}
+
+/* Vidrio más opaco, para formularios que tienen que leerse bien */
+.vidrioFuerte {
+  background: var(--vidrioFuerte);
+}
