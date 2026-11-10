@@ -1,0 +1,294 @@
+/* Estilos generales: cuerpo, fondo decorativo, tipografía, navbar, botones, formularios y tablas */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fondo);
+  font-family: var(--fuenteTexto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+  /* Los brillos decorativos se salen de los costados: así no generan scroll horizontal */
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--fuenteTitulos);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: rgba(76, 141, 255, 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 3px;
+}
+
+/* ---------- Fondo decorativo (resplandores + grilla de puntos) ---------- */
+
+.fondoDecorativo {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.resplandor {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.resplandorAzul {
+  width: 720px;
+  height: 720px;
+  top: -320px;
+  left: -220px;
+  background: radial-gradient(circle, rgba(76, 141, 255, 0.22), transparent 65%);
+}
+
+.resplandorVioleta {
+  width: 640px;
+  height: 640px;
+  top: 18%;
+  right: -260px;
+  background: radial-gradient(circle, rgba(155, 123, 255, 0.18), transparent 65%);
+}
+
+.resplandorAbajo {
+  width: 900px;
+  height: 500px;
+  bottom: -320px;
+  left: 20%;
+  background: radial-gradient(ellipse, rgba(52, 120, 255, 0.12), transparent 70%);
+}
+
+.grillaPuntos {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(148, 170, 220, 0.14) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 100%);
+}
+
+/* ---------- Navbar ---------- */
+
+.navbarPrincipal {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: rgba(7, 11, 24, 0.72);
+  backdrop-filter: var(--desenfoque);
+  border-bottom: 1px solid var(--borde);
+  padding: 0.9rem 0;
+}
+
+.logo {
+  font-family: var(--fuenteTitulos);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  color: var(--texto);
+  text-transform: uppercase;
+}
+
+.logo .letraLogo {
+  color: var(--azul);
+}
+
+.navbarPrincipal .nav-link {
+  color: var(--textoSuave);
+  font-weight: 500;
+  padding-inline: 0.9rem !important;
+}
+
+.navbarPrincipal .nav-link:hover,
+.navbarPrincipal .nav-link.active {
+  color: var(--texto);
+}
+
+.saludoUsuario {
+  color: var(--textoSuave);
+  font-size: 0.9rem;
+}
+
+/* ---------- Botones ---------- */
+
+.btn {
+  --bs-btn-font-weight: 600;
+  --bs-btn-border-radius: 12px;
+  --bs-btn-padding-x: 1.1rem;
+  --bs-btn-padding-y: 0.55rem;
+}
+
+.btn-lg {
+  --bs-btn-padding-x: 1.75rem;
+  --bs-btn-padding-y: 0.85rem;
+  --bs-btn-font-size: 1.05rem;
+}
+
+.btn-sm {
+  --bs-btn-border-radius: 9px;
+  --bs-btn-padding-x: 0.75rem;
+  --bs-btn-padding-y: 0.35rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--azul);
+  --bs-btn-border-color: var(--azul);
+  --bs-btn-hover-bg: var(--azulOscuro);
+  --bs-btn-hover-border-color: var(--azulOscuro);
+  --bs-btn-active-bg: var(--azulOscuro);
+  --bs-btn-active-border-color: var(--azulOscuro);
+  --bs-btn-disabled-bg: var(--azul);
+  --bs-btn-disabled-border-color: var(--azul);
+  box-shadow: 0 10px 30px -10px rgba(76, 141, 255, 0.6);
+}
+
+/* Botón de vidrio (como el de "Resume" de la referencia) */
+.btn-vidrio,
+.btn-outline-light,
+.btn-outline-secondary,
+.btn-outline-primary {
+  --bs-btn-color: var(--texto);
+  --bs-btn-bg: rgba(22, 32, 60, 0.5);
+  --bs-btn-border-color: var(--bordeFuerte);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: rgba(76, 141, 255, 0.14);
+  --bs-btn-hover-border-color: rgba(76, 141, 255, 0.6);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: rgba(76, 141, 255, 0.22);
+  --bs-btn-active-border-color: var(--azul);
+  backdrop-filter: var(--desenfoque);
+}
+
+.btn-outline-danger {
+  --bs-btn-color: #fb7185;
+  --bs-btn-border-color: rgba(251, 113, 133, 0.4);
+  --bs-btn-hover-bg: rgba(251, 113, 133, 0.15);
+  --bs-btn-hover-border-color: #fb7185;
+  --bs-btn-hover-color: #fda4af;
+}
+
+.btn-texto {
+  --bs-btn-color: var(--texto);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-border-color: transparent;
+}
+
+/* ---------- Formularios ---------- */
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--textoSuave);
+}
+
+.form-control,
+.form-select {
+  background-color: rgba(8, 13, 30, 0.55);
+  border-color: var(--borde);
+  border-radius: 12px;
+  color: var(--texto);
+  padding: 0.7rem 0.95rem;
+}
+
+.form-control::placeholder {
+  color: rgba(148, 163, 194, 0.6);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: rgba(8, 13, 30, 0.75);
+  border-color: rgba(76, 141, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(76, 141, 255, 0.15);
+  color: var(--texto);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: rgba(251, 113, 133, 0.7);
+}
+
+.invalid-feedback {
+  color: #fb7185;
+}
+
+/* ---------- Tablas, listas, badges y alertas ---------- */
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--texto);
+  --bs-table-border-color: var(--borde);
+  --bs-table-hover-bg: rgba(148, 170, 220, 0.05);
+  --bs-table-hover-color: var(--texto);
+}
+
+.table thead th {
+  color: var(--textoSuave);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.list-group {
+  --bs-list-group-bg: var(--vidrio);
+  --bs-list-group-color: var(--texto);
+  --bs-list-group-border-color: var(--borde);
+  --bs-list-group-border-radius: var(--radio);
+  --bs-list-group-action-hover-bg: rgba(76, 141, 255, 0.08);
+  --bs-list-group-action-hover-color: #fff;
+  --bs-list-group-action-color: var(--textoSuave);
+  --bs-list-group-active-bg: rgba(76, 141, 255, 0.18);
+  --bs-list-group-active-border-color: rgba(76, 141, 255, 0.45);
+  --bs-list-group-active-color: #fff;
+  backdrop-filter: var(--desenfoque);
+}
+
+.badge.text-bg-secondary {
+  background-color: rgba(148, 170, 220, 0.12) !important;
+  color: var(--texto) !important;
+  border: 1px solid var(--borde);
+  font-weight: 500;
+}
+
+.alert {
+  --bs-alert-border-radius: var(--radio);
+  backdrop-filter: var(--desenfoque);
+}
+
+/* ---------- Footer ---------- */
+
+.footerPrincipal {
+  border-top: 1px solid var(--borde);
+  color: var(--textoSuave);
+  font-size: 0.9rem;
+}
+
+/* ---------- Respeta a quien prefiere menos movimiento ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo: contador de clics</title>
+    <style>
+      body { font-family: system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; }
+      #numero { font-size: 4rem; text-align: center; }
+      button { font-size: 1.2rem; padding: 0.4rem 1rem; margin: 0.2rem; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="numero">0</div>
+      <button id="restar">-1</button>
+      <button id="cero">Cero</button>
+      <button id="sumar">+1</button>
+    </div>
+    <script>
+      let numero = 0
+      const pantalla = document.getElementById('numero')
+      function mostrar() { pantalla.textContent = numero }
+      document.getElementById('sumar').onclick = () => { numero++; mostrar() }
+      document.getElementById('restar').onclick = () => { numero--; mostrar() }
+      document.getElementById('cero').onclick = () => { numero = 0; mostrar() }
+    </script>
+  </body>
+</html>

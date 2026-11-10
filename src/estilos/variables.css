@@ -1,0 +1,48 @@
+/* Colores, fuentes y medidas de todo el sitio.
+   Si cambia el manual de marca, se cambia acá. */
+
+:root[data-bs-theme='dark'] {
+  /* Paleta */
+  --fondo: #070b18;
+  --fondoElevado: #0b1226;
+  --texto: #e7ecf7;
+  --textoSuave: #94a3c2;
+  --azul: #4c8dff;
+  --azulOscuro: #3576ec;
+  --violeta: #9b7bff;
+  --verde: #34d399;
+  --degradado: linear-gradient(100deg, #4c8dff 0%, #9b7bff 100%);
+
+  /* Vidrio */
+  --vidrio: rgba(22, 32, 60, 0.45);
+  --vidrioFuerte: rgba(18, 27, 52, 0.7);
+  --borde: rgba(148, 170, 220, 0.14);
+  --bordeFuerte: rgba(148, 170, 220, 0.26);
+  --desenfoque: blur(16px) saturate(140%);
+
+  /* Fuentes */
+  --fuenteTitulos: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+  --fuenteTexto: 'Manrope Variable', system-ui, sans-serif;
+
+  /* Formas */
+  --radioChico: 10px;
+  --radio: 14px;
+  --radioGrande: 22px;
+
+  /* Bootstrap: le pasamos nuestra paleta */
+  --bs-body-bg: var(--fondo);
+  --bs-body-color: var(--texto);
+  --bs-body-font-family: var(--fuenteTexto);
+  --bs-secondary-color: var(--textoSuave);
+  --bs-tertiary-bg: var(--fondoElevado);
+  --bs-border-color: var(--borde);
+  --bs-border-radius: var(--radio);
+  --bs-primary: #4c8dff;
+  --bs-primary-rgb: 76, 141, 255;
+  --bs-link-color: #7aa9ff;
+  --bs-link-color-rgb: 122, 169, 255;
+  --bs-link-hover-color: #a9c6ff;
+  --bs-link-hover-color-rgb: 169, 198, 255;
+  --bs-heading-color: var(--texto);
+  --bs-emphasis-color: #ffffff;
+}
