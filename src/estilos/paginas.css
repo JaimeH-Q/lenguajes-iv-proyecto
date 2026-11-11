@@ -1,0 +1,50 @@
+/* Estilos de proyectos, demos, login/registro y panel de admin */
+
+.imagenProyecto {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sinImagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(76, 141, 255, 0.25), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(155, 123, 255, 0.25), transparent 55%),
+    var(--fondoElevado);
+  color: var(--textoSuave);
+  font-family: var(--fuenteTitulos);
+  font-weight: 700;
+}
+
+.miniatura {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tarjetaFormulario {
+  padding: 2rem;
+}
+
+.contenedorGrafico {
+  position: relative;
+  height: 260px;
+}
+
+.listaDeCorreos {
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+/* Números grandes del dashboard */
+.numeroEstadistica {
+  font-family: var(--fuenteTitulos);
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
